@@ -1663,7 +1663,11 @@ button { font: inherit; }
 .pet-v2-message p { margin:0; padding:7px 8px; border:1px solid #343c4a; border-radius:var(--radius-md); background:#171c27; }
 .pet-v2-message.user { align-self:flex-end; max-width:74%; }
 .pet-v2-message.user p { border-color:#355b97; color:#f2f6ff; background:#18223a; }
-.pet-v2-gallery > .pet-v2-capabilities { grid-template-columns:repeat(2,minmax(0,1fr)); }
+.pet-v2-gallery > .pet-v2-capabilities { grid-template-columns:repeat(2,minmax(0,1fr)); grid-template-rows:minmax(0,1fr); align-items:stretch; }
+/* The portfolio gallery gives .shot:nth-child(n) explicit grid tracks. Reset those
+   selectors inside this compact two-up panel so neither preview creates phantom columns. */
+.pet-v2-gallery > .pet-v2-capabilities > .shot,
+.pet-v2-gallery > .pet-v2-capabilities > .shot:nth-child(n) { grid-column:auto; grid-row:auto; width:100%; height:100%; min-width:0; min-height:0; align-self:stretch; aspect-ratio:auto; }
 .pet-v2-media { position:relative; display:block; min-width:0; overflow:hidden; border:1px solid var(--border-default); border-radius:var(--radius-lg); background:#000; }
 .pet-v2-media img { display:block; width:100%; height:100%; object-fit:cover; object-position:center top; }
 .pet-v2-media.pet-v2-feedback img { object-fit:contain; object-position:center; }
